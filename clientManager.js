@@ -32,7 +32,7 @@ async function initializeClients(clientId) {
                 clientId: clientId, // Crucial for multi-session
                 backupSyncIntervalMs: 60 * 1000 // Sync session data every minute
             }),
-            puppeteer: {headless:false,
+            puppeteer: {headless:true,
                 args: [
                     '--no-sandbox',
                     '--disable-setuid-sandbox',

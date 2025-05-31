@@ -4,7 +4,8 @@ const qrcode = require('qrcode-terminal');
 const mongoose = require('mongoose');
 const { MongoStore } = require('wwebjs-mongo');
 //const accountsConfig = require('./config'); // Your accounts configuration
-const uri = "mongodb+srv://barodsoft:T4OGbW4jfT6tZXad@cluster0.texunwy.mongodb.net/customers?retryWrites=true&w=majority&appName=Cluster0";
+//const uri = "mongodb+srv://barodsoft:T4OGbW4jfT6tZXad@cluster0.texunwy.mongodb.net/customers?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "mongodb+srv://barodsoft:T4OGbW4jfT6tZXad@cluster0.texunwy.mongodb.net/"
 
 // Store active clients
 const clients = {};

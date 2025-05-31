@@ -94,13 +94,13 @@ app.post('/status', async (req, res) => {
 
 
 // Get Qr Code
-app.post('/start', async (req, res) => {
-    const q = req.body;
-    //sId=q.sessionId;
-    //console.log(sId);
-    await main(q.sessionId).catch(console.error);
-    res.json({ status: true});
-});
+// app.post('/start', async (req, res) => {
+//     const q = req.body;
+//     //sId=q.sessionId;
+//     //console.log(sId);
+//     await main(q.sessionId).catch(console.error);
+//     res.json({ status: true});
+// });
 
 // Send a text message
 app.post('/send-message', async (req, res) => {
@@ -162,7 +162,7 @@ app.post('/send-media', async (req, res) => {
 });
 
 // Check client status
-app.post('/status', (req, res) => {
+app.post('/start', (req, res) => {
     const q = req.body;
     //const { number, message } = req.body;
     //console.log(q.sessionId);

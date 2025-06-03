@@ -1,11 +1,10 @@
 // clients/clientManager.js
 const { Client, RemoteAuth } = require('whatsapp-web.js');
-const qrcode = require('qrcode-terminal');
+//const qrcode = require('qrcode-terminal');
 const mongoose = require('mongoose');
 const { MongoStore } = require('wwebjs-mongo');
 //const accountsConfig = require('./config'); // Your accounts configuration
-//const uri = "mongodb+srv://barodsoft:T4OGbW4jfT6tZXad@cluster0.texunwy.mongodb.net/customers?retryWrites=true&w=majority&appName=Cluster0";
-const uri = "mongodb+srv://barodsoft:T4OGbW4jfT6tZXad@cluster0.texunwy.mongodb.net/"
+const uri = "mongodb+srv://barodsoft:T4OGbW4jfT6tZXad@cluster0.texunwy.mongodb.net/customers?retryWrites=true&w=majority&appName=Cluster0";
 
 // Store active clients
 const clients = {};
@@ -33,14 +32,14 @@ async function initializeClients(clientId) {
                 clientId: clientId, // Crucial for multi-session
                 backupSyncIntervalMs: 60 * 1000 // Sync session data every minute
             }),
-            puppeteer: {headless:true,
+            puppeteer: {headless:false,
                 args: [
                     '--no-sandbox',
                     '--disable-setuid-sandbox',
-                    '--disable-dev-shm-usage', // Recommended for Docker/headless environments
-                    '--disable-accelerated-2d-canvas',
-                    '--no-first-run',
-                    '--no-zygote',
+                    //'--disable-dev-shm-usage', // Recommended for Docker/headless environments
+                    //'--disable-accelerated-2d-canvas',
+                    //'--no-first-run',
+                    //'--no-zygote',
                     // '--single-process', // Can sometimes help, but may cause issues on Windows
                 ],
                 // headless: true, // Set to false for development to see the browser
@@ -52,7 +51,7 @@ async function initializeClients(clientId) {
             qrcodes[clientId] = qr;
             cstatus[clientId] = '';
             console.log(`QR RECEIVED for ${clientId}. Scan with your phone:`);
-            qrcode.generate(qr, { small: true });
+            //qrcode.generate(qr, { small: true });
         });
 
         client.on('ready', () => {
